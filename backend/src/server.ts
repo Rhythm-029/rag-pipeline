@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+import { connectDB } from "./config/db";
 import express from "express";
 import cors from "cors";
 import uploadRoutes from "./routes/upload.routes";
@@ -10,6 +13,8 @@ app.use("/api", uploadRoutes);
 app.get("/", (_req, res) => {
   res.status(200).send("PullUp RAG Backend Running");
 });
+
+connectDB();
 
 app.listen(8000, "0.0.0.0", () => {
   console.log("Server running on port 8000");
