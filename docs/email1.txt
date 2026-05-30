@@ -1,0 +1,48 @@
+From: Krish (Founder, PullUp)
+
+To: Product & Development Team
+
+Date: 08 May 2026
+
+Time: 11:14 AM
+
+Classification: Change Request
+
+Reference:
+Requirement_v1.pdf
+Meeting_Transcript_1.txt
+
+Subject: Change Request – Introduction of Taxi Pool Feature
+
+Hi Team,
+
+Following several discussions with students over the past few weeks, I would like to formally request the addition of a Taxi Pool feature to the PullUp platform.
+
+The current version of PullUp focuses primarily on ride discovery and helping students identify others travelling to similar destinations. While this functionality is useful, the feedback we have received suggests that the primary pain point for students is not discovering rides but reducing transportation costs.
+
+A recurring observation is that multiple students often travel to the same areas such as Thane, Navi Mumbai, Powai, and Bandra after college hours. Despite travelling to similar destinations, they book separate Uber or Ola rides and incur individual transportation expenses.
+
+Students have repeatedly expressed interest in a feature that would allow them to coordinate and share taxis.
+
+The proposed Taxi Pool feature should allow:
+
+* Students to enter destination and departure time.
+* Students to discover others travelling to similar areas.
+* Creation of temporary ride pools.
+* Group communication between pool members.
+* Pool confirmation workflows.
+* Visibility into estimated cost savings.
+
+At this stage, PullUp should not become a transportation provider. We do not need direct integration with Uber or Ola for the initial release.
+
+The focus should remain on coordination and pooling.
+
+Please review the feasibility, development effort, and technical implications of introducing this feature and provide recommendations.
+
+I believe this feature aligns more closely with the actual transportation challenges faced by students and may significantly improve adoption rates.
+
+Regards,
+
+Krish
+
+Founder, PullUp

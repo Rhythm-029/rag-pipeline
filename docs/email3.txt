@@ -1,0 +1,77 @@
+From: Krish (Founder, PullUp)
+
+To: Product Team
+CC: Development Team, Operations Team
+
+Date: 15 May 2026
+
+Time: 6:12 PM
+
+Classification: Approval
+
+Reference:
+Meeting_Transcript_2.txt
+Requirement_v2.pdf
+CR-001
+CR-002
+
+Subject: Approval of Taxi Pool Feature for Phase 1 Release
+
+Hi Everyone,
+
+Following the stakeholder review meeting held on 14 May 2026 and subsequent technical discussions, I am formally approving the Taxi Pool feature for inclusion in the Phase 1 release of PullUp.
+
+The decision is based on the feedback collected from students, product review sessions, and technical feasibility assessments completed by the development team.
+
+Approved Scope:
+
+1. Taxi Pool Creation
+
+Students should be able to create and join transportation pools based on destination and departure time.
+
+2. Destination Clustering
+
+Matching should be based on transportation zones rather than exact destination matches.
+
+3. Pool Chat
+
+Each pool should include a temporary communication channel for coordination.
+
+4. Pool Status Tracking
+
+Pools should support statuses including:
+
+* Searching
+* Forming
+* Confirmed
+* Ride Active
+* Completed
+
+5. Fare Splitting Calculator
+
+Users should be able to enter the total fare and view the calculated share per participant.
+
+The following features are explicitly excluded from Phase 1:
+
+* Automated payments
+* Direct Uber integration
+* Direct Ola integration
+* Driver tracking
+* Multi-campus support
+* AI-powered recommendations
+
+These items may be considered in future releases following validation of the core pooling experience.
+
+The primary objective of Phase 1 remains unchanged:
+
+Reduce transportation costs for students by helping them share rides efficiently.
+
+Please proceed with implementation planning based on the approved scope.
+
+Thank you to everyone involved in the review process.
+
+Regards,
+
+Krish
+
+Founder, PullUp

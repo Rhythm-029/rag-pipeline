@@ -1,0 +1,85 @@
+From: Krish (Founder, PullUp)
+
+To: Product & Development Team
+
+Date: 11 May 2026
+
+Time: 4:47 PM
+
+Classification: Change Request
+
+Reference:
+Client_Email_1.txt
+Meeting_Transcript_1.txt
+
+Subject: Change Request – Destination Clustering Instead of Exact Matching
+
+Hi Team,
+
+After reviewing the proposed Taxi Pool feature and discussing matching behaviour with students, I would like to submit an additional change request regarding ride matching.
+
+The current matching concept assumes that students will be matched based on exact destination entries.
+
+I am concerned that this approach may result in very low match rates.
+
+For example:
+
+Student A may enter:
+"Hiranandani Estate"
+
+Student B may enter:
+"Viviana Mall"
+
+Student C may enter:
+"Teen Hath Naka"
+
+Technically these are different locations.
+
+However, all three students are effectively travelling to Thane.
+
+Under an exact matching model, these users would never be connected despite having highly compatible transportation needs.
+
+To improve matching efficiency, I would like the team to evaluate a destination clustering approach.
+
+The proposed approach should group nearby destinations into larger transportation zones.
+
+Examples:
+
+Thane Cluster
+
+* Hiranandani Estate
+* Viviana Mall
+* Teen Hath Naka
+* Majiwada
+
+Navi Mumbai Cluster
+
+* Vashi
+* Nerul
+* Belapur
+* Kharghar
+
+Western Suburbs Cluster
+
+* Andheri
+* Bandra
+* Kandivali
+* Borivali
+
+The objective is to maximize successful pool formation rather than pursue perfect destination accuracy.
+
+Please assess:
+
+* Technical feasibility
+* Impact on user experience
+* Impact on Firebase architecture
+* Impact on Google Maps usage
+* Potential risks
+
+I believe this change will significantly improve the success rate of Taxi Pool formation and increase overall user satisfaction.
+
+Regards,
+
+Krish
+
+Founder, PullUp
