@@ -5,9 +5,15 @@ import express from "express";
 import cors from "cors";
 import uploadRoutes from "./routes/upload.routes";
 const app = express();
+app.use(express.json());
+
+import queryRoutes from "./routes/query.routes";
+app.use(
+  "/api",
+  queryRoutes
+);
 
 app.use(cors());
-app.use(express.json());
 app.use("/api", uploadRoutes);
 
 app.get("/", (_req, res) => {
