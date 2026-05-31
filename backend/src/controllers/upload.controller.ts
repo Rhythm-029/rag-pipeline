@@ -5,6 +5,10 @@ import { createChunks } from "../services/chunk.service";
 import { createChunkMetadata } from "../services/metadata.service";
 import { saveChunks } from "../services/chunk-storage.service";
 import { generateEmbedding } from "../services/embedding.service";
+import {
+  documentExists,
+  deleteDocumentChunks,
+} from "../services/document.service";
 
 export const uploadFile = async (
   req: Request,
@@ -21,6 +25,19 @@ export const uploadFile = async (
       return;
     }
 
+    const exists = await documentExists(
+  req.file.originalname
+);
+
+if (exists) {
+  await deleteDocumentChunks(
+    req.file.originalname
+  );
+
+  console.log(
+    "Old document removed"
+  );
+}
     // Extract text from PDF
     const extractedText = await extractPdfText(
       req.file.path
