@@ -4,6 +4,7 @@ import { preprocessText } from "../services/preprocess.service";
 import { createChunks } from "../services/chunk.service";
 import { createChunkMetadata } from "../services/metadata.service";
 import { saveChunks } from "../services/chunk-storage.service";
+import { generateEmbedding } from "../services/embedding.service";
 
 export const uploadFile = async (
   req: Request,
@@ -20,49 +21,80 @@ export const uploadFile = async (
       return;
     }
 
+    // Extract text from PDF
     const extractedText = await extractPdfText(
-  req.file.path
-);
+      req.file.path
+    );
 
-const cleanText = preprocessText(
-  extractedText
-);
+    // Clean text
+    const cleanText = preprocessText(
+      extractedText
+    );
 
+    // Create chunks
+    const chunks = createChunks(
+      cleanText
+    );
 
-const chunks =
-  createChunks(cleanText);
-const chunkMetadata = createChunkMetadata(
-  chunks,
-  req.file.originalname
-);
-await saveChunks(chunkMetadata);
-console.log(chunkMetadata[0]);
+    // Create metadata
+    const chunkMetadata =
+      createChunkMetadata(
+        chunks,
+        req.file.originalname
+      );
 
-console.log(
-  "Total Chunks:",
-  chunks.length
-);
+    // Generate embeddings for all chunks
+    const chunksWithEmbeddings =
+      await Promise.all(
+        chunkMetadata.map(
+          async (chunk) => ({
+            ...chunk,
+            embedding:
+              await generateEmbedding(
+                chunk.content
+              ),
+          })
+        )
+      );
 
-console.log(
-  chunks[0]
-);
+    // Save to MongoDB
+    await saveChunks(
+      chunksWithEmbeddings
+    );
 
-console.log(
-  cleanText.substring(0, 500)
-);
+    console.log(
+      "Total Chunks:",
+      chunks.length
+    );
+
+    console.log(
+      "Embedding Dimensions:",
+      chunksWithEmbeddings[0]
+        ?.embedding.length
+    );
+
+    console.log(
+      "First Chunk:"
+    );
+
+    console.log(
+      chunksWithEmbeddings[0]
+    );
 
     res.status(200).json({
       success: true,
       file: req.file.originalname,
-      extractedChars: extractedText.length,
+      totalChunks: chunks.length,
+      extractedChars:
+        extractedText.length,
     });
   } catch (error) {
     console.error(error);
 
     res.status(500).json({
       success: false,
-      message: "Error processing PDF",
+      message:
+        "Error processing PDF",
     });
   }
 };
-

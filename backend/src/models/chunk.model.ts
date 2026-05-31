@@ -5,6 +5,7 @@ const chunkSchema = new mongoose.Schema({
   sourceDocument: String,
   chunkIndex: Number,
   content: String,
+  embedding: [Number],
   createdAt: Date,
 });
 
