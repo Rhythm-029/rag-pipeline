@@ -18,12 +18,13 @@ export const retrieveRelevantChunks = async (
       },
     },
     {
-      $project: {
-        _id: 0,
-        chunkId: 1,
-        content: 1,
-        score: {
-          $meta: "vectorSearchScore",
+       $project: {
+    _id: 0,
+    chunkId: 1,
+    sourceDocument: 1,
+    content: 1,
+    score: {
+      $meta: "vectorSearchScore",
         },
       },
     },
