@@ -1,14 +1,14 @@
 export const createChunks = (
   text: string,
-  chunkSize = 500
+  chunkSize = 500,
+  overlap = 100
 ): string[] => {
-
   const chunks: string[] = [];
 
   for (
     let i = 0;
     i < text.length;
-    i += chunkSize
+    i += chunkSize - overlap
   ) {
     chunks.push(
       text.slice(i, i + chunkSize)
